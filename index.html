@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- BLOQUEIO DE ZOOM -->
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+    <title>IBIZA - centro automotiva</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+
+    <!-- MODAL -->
+    <div class="modal" id="modalAgendar">
+
+        <div class="modal-box">
+
+            <span class="fechar" id="fecharModal">&times;</span>
+
+            <h2>Agendar Serviço</h2>
+
+            <p id="servicoEscolhido"></p>
+
+            <input type="text" id="marca" placeholder="Marca do veículo">
+            <input type="text" id="modelo" placeholder="Modelo do veículo">
+            <input type="text" id="placa" placeholder="Placa do veículo">
+            <input type="text" id="estado" placeholder="Estado do veículo">
+
+            <button id="confirmarAgendamento">Enviar no WhatsApp</button>
+
+        </div>
+
+    </div>
+
+    <!-- SITE -->
+    <div class="imagem-fundo">
+
+        <!-- MENU -->
+        <div class="menu">
+
+            <div class="logo">
+                <h1>IBIZA</h1>
+                <p>centro automotivo</p>
+            </div>
+
+            <div class="menu-links">
+                <a href="#inicio">INICIO</a>
+                <a href="#orcamento">SERVIÇOS</a>
+                <a href="#galeria">GALERIA</a>
+                <a href="#sobre">SOBRE NÓS</a>
+                <a href="#localizacao">LOCALIZAÇÃO</a>
+
+            </div>
+
+        </div>
+
+        <!-- HERO -->
+        <div class="secao" id="inicio">
+
+            <img src="img/51d3bf31-5e40-40ef-afb6-661b8628a05a.JPG" class="jetta">
+
+            <div class="direito">
+
+                <span class="tag">ESTÉTICA PREMIUM</span>
+                <span class="tag">PRODUTOS DE ALTA QUALIDADE</span>
+
+                <h2>Seu carro com aparência de novo todos os dias</h2>
+
+                <p>
+                    Trabalhamos com estética automotiva de alto padrão, oferecendo lavagem detalhada,
+                    lavagem de chassi, polimento, vitrificação, higienização interna e acabamento premium.
+
+                    Cada detalhe é pensado para valorizar seu veículo, proteger a pintura e entregar brilho impecável.
+
+                    Utilizamos produtos de alta qualidade e técnicas especializadas para garantir resultados superiores
+                    em cada serviço realizado.
+                </p>
+
+                <div class="avaliacoes">
+                    <strong>★★★★★ 5.0</strong> baseado em +300 clientes satisfeitos
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- SERVIÇOS -->
+        <div class="servicos" id="orcamento">
+
+            <h2>Serviços</h2>
+            <p class="subtitulo">Cuidado premium para valorizar seu veículo.</p>
+
+            <div class="cards-servicos">
+
+                <div class="card-servico">
+                    <h3>Lavagem Detalhada</h3>
+                    <p>Limpeza completa interna e externa com acabamento impecável.</p>
+                    <a href="#" class="btn-servico" data-servico="Lavagem Detalhada">Agendar</a>
+                </div>
+
+                <div class="card-servico">
+                    <h3>Polimento Técnico</h3>
+                    <p>Remove riscos leves e devolve brilho intenso à pintura.</p>
+                    <a href="#" class="btn-servico" data-servico="Polimento Técnico">Agendar</a>
+                </div>
+
+                <div class="card-servico">
+                    <h3>Vitrificação</h3>
+                    <p>Proteção duradoura contra sol, chuva e sujeira.</p>
+                    <a href="#" class="btn-servico" data-servico="Vitrificação">Agendar</a>
+                </div>
+
+                <div class="card-servico">
+                    <h3>Higienização Interna</h3>
+                    <p>Bancos, teto, carpetes e painel renovados.</p>
+                    <a href="#" class="btn-servico" data-servico="Higienização Interna">Agendar</a>
+                </div>
+
+                <div class="card-servico">
+                    <h3>Lavagem de Chassi</h3>
+                    <p>Remoção de barro, graxa e sujeiras profundas.</p>
+                    <a href="#" class="btn-servico" data-servico="Lavagem de Chassi">Agendar</a>
+                </div>
+
+                <div class="card-servico">
+                    <h3>Enceramento Premium</h3>
+                    <p>Mais brilho e proteção para o seu carro.</p>
+                    <a href="#" class="btn-servico" data-servico="Enceramento Premium">Agendar</a>
+                </div>
+
+                <h2 class="susp">Suspensões</h2>
+
+                <div class="card-servico">
+                    <h3>Suspensão Pneumática / Ar</h3>
+                    <p>Mais conforto e estilo, com ajuste de altura automático para qualquer situação.</p>
+                    <a href="#" class="btn-servico" data-servico="Suspensão Pneumática">Agendar</a>
+                </div>
+
+                <div class="card-servico">
+                    <h3>Suspensão Fixa</h3>
+                    <p>Ideal para quem busca estabilidade, desempenho e visual esportivo permanente.</p>
+                    <a href="#" class="btn-servico" data-servico="Suspensão Fixa">Agendar</a>
+                </div>
+
+                <div class="card-servico">
+                    <h3>Suspensão Rosca</h3>
+                    <p>Ajuste manual de altura com equilíbrio entre conforto e estilo rebaixado.</p>
+                    <a href="#" class="btn-servico" data-servico="Suspensão Rosca">Agendar</a>
+                </div>
+
+            </div>
+
+            <!-- ORÇAMENTO -->
+            <div class="personalizado">
+
+                <h2>Precisa de um orçamento personalizado?</h2>
+
+                <p>
+                    Você pode escrever o que deseja, e nós criamos um pacote personalizado
+                    para deixar seu carro do jeito que você sempre sonhou.
+                </p>
+
+            </div>
+
+            <!-- FORM -->
+            <div class="escrita">
+
+                <h2>Escreva aqui</h2>
+
+                <p>Digite seu nome:</p>
+                <textarea id="nome" placeholder="Digite aqui"></textarea>
+
+                <p>Digite o que deseja:</p>
+                <textarea id="pedido" rows="8" placeholder="Digite aqui"></textarea>
+
+                <button class="escritabutton" id="enviar">Envie aqui</button>
+
+            </div>
+
+            <!-- GALERIA -->
+            <div class="galeria-videos" id="galeria">
+
+                <video class="video-card" controls muted loop playsinline>
+                    <source src="img/6fc53cb6-8fdc-4321-9a69-a9938c009a0d.MP4" type="video/mp4">
+                </video>
+
+                <video class="video-card" controls muted loop playsinline>
+                    <source src="img/2923fd65-bf6f-441d-a0b3-97fb4380745a.MP4" type="video/mp4">
+                </video>
+
+                <video class="video-card" controls muted loop playsinline>
+                    <source src="img/4249c01d-f978-450c-ac13-ec950cb1405c.MP4" type="video/mp4">
+                </video>
+
+                <video class="video-card" controls muted loop playsinline>
+                    <source src="img/2712549b-d605-434f-a8f8-efce44bc3605.MP4" type="video/mp4">
+                </video>
+
+                <video class="video-card" controls muted loop playsinline>
+                    <source src="img/9d8c7be3-55a5-4821-8f93-89123c80c4de.MP4" type="video/mp4">
+                </video>
+
+            </div>
+
+        </div>
+
+        <!-- SOBRE -->
+        <div class="secao">
+
+            <img src="img/498d13e6-e936-4cb6-ae1e-9ec3bfec795b.JPG" class="jetta">
+
+            <div class="direito" id="sobre">
+
+                <h2>Sobre nós</h2>
+
+                <p>
+
+                    Com mais de 13 anos de experiência em Caxias do Sul e região, construímos nossa história com
+                    dedicação, confiança e paixão pelo setor automotivo. Tratamos cada veículo como se fosse nosso,
+                    analisando cada detalhe com cuidado para entregar um serviço impecável e acima das expectativas.
+
+                    Trabalhamos com técnicas especializadas, produtos de alta qualidade e atenção total em cada etapa do
+                    processo, sempre buscando realçar a beleza, preservar a pintura e valorizar o seu carro. Mais do que
+                    estética automotiva, entregamos cuidado, proteção e excelência.
+
+                    Nosso compromisso é oferecer atendimento de qualidade, transparência e resultados que realmente
+                    fazem a diferença. Aqui, seu veículo recebe o cuidado que merece e sai com aparência renovada,
+                    brilho intenso e acabamento premium.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- MAPA -->
+        <div class="servicos" id="localizacao">
+
+            <h2>Onde ficamos?</h2>
+
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!4v1777503817009!6m8!1m7!1sibppsEW3aa2w9j_Q6jxsyA!2m2!1d-29.18348361609853!2d-51.18694288868895!3f101.9326472198523!4f2.6177568274124496!5f0.7820865974627469"
+                width="100%" height="500" style="border:0;" allowfullscreen loading="lazy">
+            </iframe>
+
+            <p>Rua Teodoro Francisco Da Rosa 1501</p>
+
+        </div>
+
+        <div class="rodape2">
+
+    <div class="footer-grid">
+
+        <!-- COLUNA 1 -->
+        <div class="footer-col">
+            <div class="footer-logo">
+                <h2>IBIZA</h2>
+                <span>CENTRO AUTOMOTIVO</span>
+            </div>
+
+            <!-- <p class="footer-texto">
+                Excelência em estética automotiva, vitrificação,
+                polimento técnico e cuidados premium para seu veículo
+                em Caxias do Sul e região.
+            </p> -->
+
+            <div class="footer-social">
+                <a href="https://www.instagram.com/ibizacentroautomotivo/"><img src="img/instagram (3).png" alt=""></a>
+                <a href="https://wa.me/5554996815700"><img src="img/whatsapp (1).png" alt=""></a>
+            </div>
+        </div>
+
+        <!-- COLUNA 2 -->
+        <div class="footer-col">
+            <h3>LINKS RÁPIDOS</h3>
+
+            <a href="#inicio">Início</a>
+            <a href="#orcamento">Serviços</a>
+            <a href="#galeria">Galeria</a>
+            <a href="#localizacao">Localização</a>
+            <a href="#contato">Contato</a>
+        </div>
+
+        <!-- COLUNA 3 -->
+        <div class="footer-col">
+            <h3>SERVIÇOS</h3>
+
+            <p>• Lavagem Detalhada</p>
+            <p>• Polimento Técnico</p>
+            <p>• Vitrificação</p>
+            <p>• Higienização Interna</p>
+            <p>• Suspensão Pneumática</p>
+            <p>• Enceramento Premium</p>
+        </div>
+
+        <!-- COLUNA 4 -->
+        <div class="footer-col" id="contato">
+            <h3>CONTATO</h3>
+
+            <p>📞 (54) 99681-5700</p>
+            <p>💬 WhatsApp</p>
+            <p>📍 Caxias do Sul</p>
+
+            <a href="https://wa.me/5554996815700" target="_blank" class="btn-footer">
+                Contratar
+            </a>
+        </div>
+
+    </div>
+
+        </div>
+        <!-- RODAPÉ -->
+        <div class="rodape">
+            <h3>©2026 IBIZA CENTRO AUTOMOTIVO - Todos os Direitos Reservados.</h3>
+            <h3 class="dev">Produzido por | JoãoDev</h3>
+
+        </div>
+
+    </div>
+
+    <script src="config.js"></script>
+
+</body>
+
+</html>
