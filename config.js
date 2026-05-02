@@ -156,3 +156,23 @@ window.addEventListener("scroll", function () {
         menu.classList.remove("scroll");
     }
 });
+
+/* ===============================
+   REVELAR AO DESCER A PÁGINA
+================================= */
+
+const elementos = document.querySelectorAll(".revelar");
+
+const aparecer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("ativo");
+        }
+    });
+}, {
+    threshold: 0.15
+});
+
+elementos.forEach(el => {
+    aparecer.observe(el);
+});

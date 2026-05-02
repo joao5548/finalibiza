@@ -18,6 +18,11 @@ body {
     padding-top: 90px;
 }
 
+html, body {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
 /* ================= MENU FIXO ================= */
 
 .menu {
@@ -775,9 +780,9 @@ iframe {
     left:0;
     z-index:99999;
 
-    background:black;
+    background:rgba(0,0,0,0.75);
     backdrop-filter:blur(14px);
-    border-bottom:1px solid black;
+    border-bottom:1px solid rgba(255,255,255,0.08);
 
     transition:
     height 0.8s ease,
@@ -954,3 +959,28 @@ iframe {
     transform:translateY(-8px) scale(1.02);
     box-shadow:0 20px 35px rgba(0,0,0,0.35);
 } */
+
+.revelar {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: 0.9s ease;
+}
+
+.revelar.ativo {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* variações opcionais */
+.esquerda {
+    transform: translateX(-60px);
+}
+
+.direita {
+    transform: translateX(60px);
+}
+
+.esquerda.ativo,
+.direita.ativo {
+    transform: translateX(0);
+}
