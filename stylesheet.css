@@ -699,7 +699,7 @@ iframe {
         padding:90px 25px 30px;
 
         background:rgba(0,0,0,0.78);   /* mantém suas cores */
-        border-bottom:1px solid rgba(255,255,255,0.08);
+        border-bottom:1px solid rgba(0,0,0,0.78);
         backdrop-filter:blur(12px);
 
         display:flex;
