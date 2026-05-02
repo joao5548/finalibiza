@@ -130,3 +130,29 @@ const observer = new IntersectionObserver((entries) => {
 videos.forEach(video => {
     observer.observe(video);
 });
+
+/* MENU HAMBURGUER */
+
+const hamburguer = document.getElementById("hamburguer");
+const menuLinks = document.getElementById("menuLinks");
+const fecharMenu = document.getElementById("fecharMenu");
+
+hamburguer.addEventListener("click", function () {
+    menuLinks.classList.add("ativo");
+});
+
+fecharMenu.addEventListener("click", function () {
+    menuLinks.classList.remove("ativo");
+});
+
+/* COLOQUE NO FINAL DO JS */
+
+const menu = document.querySelector(".menu");
+
+window.addEventListener("scroll", function () {
+    if (window.scrollY > 40) {
+        menu.classList.add("scroll");
+    } else {
+        menu.classList.remove("scroll");
+    }
+});
