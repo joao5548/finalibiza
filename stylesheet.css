@@ -1275,15 +1275,3 @@ iframe {
     }
 
 }
-
-@media(max-width:768px){
-
-    .secao{
-        background-size: contain;   /* mostra mais da imagem */
-        background-position: center center;
-        background-repeat: no-repeat;
-        min-height: 100vh;
-        background-color: #000;     /* preenche laterais */
-    }
-
-}
