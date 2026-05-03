@@ -951,3 +951,327 @@ iframe {
     transform:translateY(-8px) scale(1.02);
     box-shadow:0 20px 35px rgba(0,0,0,0.35);
 } */
+
+/* ================= HERO NOVO ================= */
+
+.secao{
+    width:100%;
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    overflow:hidden;
+
+    background:url("img/IMG_9545.jpg") center center/cover no-repeat;
+}
+
+/* sombreado por cima da imagem */
+.secao::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    /* escuro da direita para esquerda */
+    background:linear-gradient(
+        90deg,
+        rgba(0,0,0,1) 0%,
+        rgba(0,0,0,0.80) 35%,
+        rgba(0,0,0,0.45) 60%,
+        rgba(0,0,0,0.65) 100%
+    );
+
+    z-index:1;
+}
+
+/* remove a imagem antiga */
+.jetta{
+    display:none;
+}
+
+/* texto agora no lado esquerdo */
+.direito{
+    width:50%;
+    padding:80px;
+    position:relative;
+    z-index:2;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+
+    background:none;
+}
+
+/* RESPONSIVO */
+@media(max-width:1100px){
+
+    .direito{
+        width:100%;
+        padding:50px 35px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .secao{
+        min-height:90vh;
+        background-position:center;
+    }
+
+    .direito{
+        width:100%;
+        padding:35px 20px;
+    }
+
+    .direito h2{
+        font-size:34px;
+    }
+
+}
+
+/* ================= SOBRE NÓS ================= */
+/* coloca SOMENTE no segundo bloco */
+
+#sobre{
+    width:50%;
+    padding:80px;
+    position:relative;
+    z-index:2;
+    background:#000;
+
+}
+
+/* seção que contém o Sobre Nós */
+.secao:has(#sobre){
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    align-items:stretch;
+    background:none;
+}
+
+/* mostra imagem do bloco Sobre Nós */
+.secao:has(#sobre) .jetta{
+    display:block;
+    width:50%;
+    object-fit:cover;
+}
+
+/* remove sombreado só do Sobre Nós */
+.secao:has(#sobre)::before{
+    display:none;
+}
+
+/* texto lado direito */
+.secao:has(#sobre) #sobre{
+    width:50%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+}
+
+/* RESPONSIVO */
+@media(max-width:1100px){
+
+    .secao:has(#sobre){
+        flex-direction:column;
+    }
+
+    .secao:has(#sobre) .jetta,
+    .secao:has(#sobre) #sobre{
+        width:100%;
+    }
+
+    .secao:has(#sobre) .jetta{
+        height:420px;
+    }
+
+    .secao:has(#sobre) #sobre{
+        padding:45px 30px;
+    }
+}
+
+@media(max-width:768px){
+
+    .secao:has(#sobre) .jetta{
+        height:320px;
+    }
+
+    .secao:has(#sobre) #sobre{
+        padding:30px 20px;
+    }
+
+    .secao:has(#sobre) #sobre h2{
+        font-size:34px;
+    }
+}
+
+/* MENU MAIS LENTO */
+.menu{
+    transition:
+    height 1.2s ease,
+    top 1.2s ease,
+    border-radius 1.2s ease;
+}
+
+.menu{
+    height:110px;
+}
+
+.menu.scroll{
+    height:95px;
+}
+
+/* ================= SOBRE NÓS - IMAGEM MAIOR ================= */
+
+/* imagem desktop */
+.secao:has(#sobre) .jetta{
+    display: block;
+    width: 55%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0;
+}
+
+/* texto menor para sobrar espaço */
+.secao:has(#sobre) #sobre{
+    width: 45%;
+}
+
+/* tablet */
+@media(max-width:1100px){
+
+    .secao:has(#sobre) .jetta{
+        width: 100%;
+        height: 720px;
+        object-fit: cover;
+    }
+
+    .secao:has(#sobre) #sobre{
+        width: 100%;
+    }
+}
+
+/* celular */
+@media(max-width:768px){
+
+    .secao:has(#sobre) .jetta{
+        height: 720px;
+        object-fit: cover;
+        object-position: center;
+    }
+
+}
+
+/* ================= CARROS DESLIZANDO ================= */
+
+.carrossel-carros{
+    width:70%;
+    overflow:hidden;
+    margin-top:70px;
+    padding:20px 0;
+    background:#000;
+    position:relative;
+    margin: auto;
+    margin-top: 70px;
+}
+
+.faixa-carros{
+    display:flex;
+    width:max-content;
+    gap:22px;
+    animation:deslizarCarros 30s linear infinite;
+}
+
+.carro-item{
+    flex:none;
+    width:400px;   /* menor largura */
+    height:400px;  /* maior altura */
+    border-radius:22px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,0.08);
+    background:#111;
+}
+
+.carro-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:0.4s;
+}
+
+.carro-item img:hover{
+    transform:scale(1.06);
+}
+
+@keyframes deslizarCarros{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+/* RESPONSIVO */
+@media(max-width:768px){
+
+    .carro-item{
+        width:260px;
+        height:270px;
+    }
+
+    .carrossel-carros{
+    width:90%;
+}
+
+}
+
+/* ===============================
+   EFEITO ENTRANDO AO DESCER
+   COLOQUE NO FINAL DO CSS
+================================= */
+
+.sumir-scroll{
+    opacity:0;
+    transform:translateY(70px) scale(0.96);
+    transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
+
+.aparecer-scroll{
+    opacity:1;
+    transform:translateY(0) scale(1);
+}
+
+/* variações */
+.card-servico:nth-child(odd){
+    transform:translateX(-60px);
+}
+
+.card-servico:nth-child(even){
+    transform:translateX(60px);
+}
+
+.aparecer-scroll.card-servico{
+    transform:translateX(0);
+}
+
+/* CELULAR - EMPURRAR PRIMEIRO BLOCO PARA BAIXO */
+@media(max-width:768px){
+
+    body{
+         /* aumenta espaço do cabeçalho */
+    }
+
+    .secao#inicio{
+        padding-top: 150px; /* desce mais o conteúdo inicial */
+    }
+
+}

@@ -156,3 +156,42 @@ window.addEventListener("scroll", function () {
         menu.classList.remove("scroll");
     }
 });
+
+/* ===============================
+   ANIMAÇÃO AO ROLAR A PÁGINA
+   COLOQUE NO FINAL DO JS
+================================= */
+
+/* elementos que vão aparecer */
+const elementosAnimar = document.querySelectorAll(`
+.card-servico,
+.video-card,
+.carro-item,
+.escrita,
+.personalizado,
+#sobre,
+iframe,
+.footer-col,
+.susp,
+.servicos h2,
+.subtitulo
+`);
+
+/* adiciona classe inicial */
+elementosAnimar.forEach(el => {
+    el.classList.add("sumir-scroll");
+});
+
+const observerScroll = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("aparecer-scroll");
+        }
+    });
+}, {
+    threshold: 0.15
+});
+
+elementosAnimar.forEach(el => {
+    observerScroll.observe(el);
+});
