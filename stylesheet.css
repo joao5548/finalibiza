@@ -1312,6 +1312,12 @@
     border-radius: 10px;
 }
 
+.modal-box input,
+.modal-box select {
+    height: 42px;
+    box-sizing: border-box;
+}
+
 /* botão menor */
 .modal-box button {
     padding: 14px;
@@ -1385,6 +1391,16 @@
     .modal-box button {
         padding: 12px;
         font-size: 14px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .modal-box input[type="date"] {
+        height: 38px;
+        padding: 8px;
+        font-size: 13px;
     }
 
 }
