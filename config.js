@@ -20,14 +20,40 @@ document.addEventListener("touchend", function (e) {
 }, { passive: false });
 
 /* ===============================
-   BLOQUEAR DATA PASSADA
+   VALIDAR DATA (INPUT TEXTO)
 ================================= */
 
-const campoData = document.getElementById("data");
+const campoData = document.getElementById("date");
 
 if (campoData) {
-    const hoje = new Date().toISOString().split("T")[0];
-    campoData.setAttribute("min", hoje);
+    campoData.addEventListener("blur", function () {
+
+        const valor = this.value.trim();
+
+        // verifica formato dd/mm/aaaa
+        const partes = valor.split("/");
+
+        if (partes.length !== 3) {
+            alert("Digite a data no formato: 04/05/2026");
+            this.value = "";
+            return;
+        }
+
+        const dia = parseInt(partes[0]);
+        const mes = parseInt(partes[1]) - 1;
+        const ano = parseInt(partes[2]);
+
+        const dataDigitada = new Date(ano, mes, dia);
+        const hoje = new Date();
+
+        hoje.setHours(0, 0, 0, 0);
+        dataDigitada.setHours(0, 0, 0, 0);
+
+        if (dataDigitada < hoje) {
+            alert("Você não pode escolher uma data anterior a hoje.");
+            this.value = "";
+        }
+    });
 }
 
 /* ===============================
@@ -73,7 +99,7 @@ document.getElementById("confirmarAgendamento").addEventListener("click", functi
     const modelo = document.getElementById("modelo").value.trim();
     const placa = document.getElementById("placa").value.trim();
     const estado = document.getElementById("estado").value.trim();
-    const data = document.getElementById("data").value;
+    const data = document.getElementById("date").value.trim();
     const horario = document.getElementById("horario").value;
 
     /* BLOQUEAR CAMPOS VAZIOS */
@@ -82,33 +108,20 @@ document.getElementById("confirmarAgendamento").addEventListener("click", functi
         return;
     }
 
-    /* VALIDAR DATA */
-    const hojeDate = new Date();
-    const dataSelecionada = new Date(data);
-
-    hojeDate.setHours(0,0,0,0);
-    dataSelecionada.setHours(0,0,0,0);
-
-    if (dataSelecionada < hojeDate) {
-        alert("Você não pode escolher uma data anterior a hoje.");
-        return;
-    }
-
     const servico = servicoEscolhido.innerText.replace("Serviço escolhido: ", "");
 
     const numero = "5554996815700";
 
     const mensagem =
-    "⚠️AGENDAMENTO IBIZA" + "%0A%0A" + 
-    "⚠️Serviço: " + servico + "%0A" +
-    "⚠️Marca: " + marca + "%0A" +
-    "⚠️Modelo: " + modelo + "%0A" +
-    "⚠️Placa: " + placa + "%0A%0A" +
-    "⚠️Estado: " + estado + "%0A" +
-    "⚠️Data: " + data + "%0A" +
-    "⚠️Horário: " + horario + "%0A%0A" +
-    ""+
-    "⚠️ Gostaria de confirmar se há disponibilidade para este horário.";
+        "⚠️AGENDAMENTO IBIZA%0A%0A" +
+        "⚠️Serviço: " + servico + "%0A" +
+        "⚠️Marca: " + marca + "%0A" +
+        "⚠️Modelo: " + modelo + "%0A" +
+        "⚠️Placa: " + placa + "%0A%0A" +
+        "⚠️Estado: " + estado + "%0A" +
+        "⚠️Data: " + data + "%0A" +
+        "⚠️Horário: " + horario + "%0A%0A" +
+        "⚠️ Gostaria de confirmar se há disponibilidade para este horário.";
 
     window.open("https://wa.me/" + numero + "?text=" + mensagem, "_blank");
 });
