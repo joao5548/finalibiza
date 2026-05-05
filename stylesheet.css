@@ -1313,3 +1313,41 @@
     line-height: 1.6;
 }
 
+@media(max-width:768px){
+
+    .escrita{
+        width: 100%;
+        padding: 25px 18px;
+        margin-top: 40px;
+        border-radius: 16px;
+    }
+
+    .escrita h2{
+        font-size: 26px;
+    }
+
+    .escrita p{
+        font-size: 14px;
+    }
+
+    textarea{
+        padding: 14px;
+        font-size: 14px;
+    }
+
+    .escritabutton{
+        width: 100%;
+        padding: 16px;
+        font-size: 16px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .secao{
+        background-size: cover;
+        background-position: 70% center; /* puxa um pouco pra direita */
+    }
+
+}
