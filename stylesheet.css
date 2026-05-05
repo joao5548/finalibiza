@@ -1288,29 +1288,41 @@
 
     }
 
-    .modal-box select,
-.modal-box input[type="date"] {
-    width: 100%;
-    padding: 16px;
+    /* ================= MODAL AJUSTADO ================= */
+
+.modal-box {
+    width: 90%;
+    max-width: 420px; /* ⬅️ menor largura */
+    padding: 25px;    /* ⬅️ menos espaço interno */
+    border-radius: 16px;
+}
+
+/* título menor */
+.modal-box h2 {
+    font-size: 26px;
     margin-bottom: 15px;
-    border: none;
-    border-radius: 12px;
-    font-size: 16px;
-    background: #1a1a1a;
-    color: #fff;
 }
 
-/* placeholder branco */
-.modal-box select option {
-    color: #000;
-}
-
-/* aviso */
-.aviso {
+/* inputs menores */
+.modal-box input,
+.modal-box select {
+    padding: 12px;
     font-size: 14px;
-    color: #ff001d;
-    margin-bottom: 20px;
-    line-height: 1.6;
+    margin-bottom: 12px;
+    border-radius: 10px;
+}
+
+/* botão menor */
+.modal-box button {
+    padding: 14px;
+    font-size: 15px;
+    border-radius: 20px;
+}
+
+/* textos de aviso menores */
+.aviso {
+    font-size: 13px;
+    margin-bottom: 15px;
 }
 
 @media(max-width:768px){
@@ -1348,6 +1360,31 @@
     .secao{
         background-size: cover;
         background-position: 70% center; /* puxa um pouco pra direita */
+    }
+
+}
+
+@media(max-width:768px){
+
+    .modal-box {
+        width: 95%;
+        max-width: 360px; /* ⬅️ mais compacto */
+        padding: 20px;
+    }
+
+    .modal-box h2 {
+        font-size: 22px;
+    }
+
+    .modal-box input,
+    .modal-box select {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .modal-box button {
+        padding: 12px;
+        font-size: 14px;
     }
 
 }
