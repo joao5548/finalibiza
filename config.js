@@ -20,6 +20,17 @@ document.addEventListener("touchend", function (e) {
 }, { passive: false });
 
 /* ===============================
+   BLOQUEAR DATA PASSADA
+================================= */
+
+const campoData = document.getElementById("data");
+
+if (campoData) {
+    const hoje = new Date().toISOString().split("T")[0];
+    campoData.setAttribute("min", hoje);
+}
+
+/* ===============================
    MODAL AGENDAMENTO
 ================================= */
 
@@ -62,10 +73,24 @@ document.getElementById("confirmarAgendamento").addEventListener("click", functi
     const modelo = document.getElementById("modelo").value.trim();
     const placa = document.getElementById("placa").value.trim();
     const estado = document.getElementById("estado").value.trim();
+    const data = document.getElementById("data").value;
+    const horario = document.getElementById("horario").value;
 
     /* BLOQUEAR CAMPOS VAZIOS */
-    if (marca === "" || modelo === "" || placa === "" || estado === "") {
+    if (marca === "" || modelo === "" || placa === "" || estado === "" || data === "" || horario === "") {
         alert("Preencha todos os campos para continuar.");
+        return;
+    }
+
+    /* VALIDAR DATA */
+    const hojeDate = new Date();
+    const dataSelecionada = new Date(data);
+
+    hojeDate.setHours(0,0,0,0);
+    dataSelecionada.setHours(0,0,0,0);
+
+    if (dataSelecionada < hojeDate) {
+        alert("Você não pode escolher uma data anterior a hoje.");
         return;
     }
 
@@ -74,12 +99,16 @@ document.getElementById("confirmarAgendamento").addEventListener("click", functi
     const numero = "5554996815700";
 
     const mensagem =
-        "Olá, gostaria de agendar um serviço.%0A%0A" +
-        "Serviço: " + servico + "%0A" +
-        "Marca: " + marca + "%0A" +
-        "Modelo: " + modelo + "%0A" +
-        "Placa: " + placa + "%0A" +
-        "Estado: " + estado;
+    "⚠️AGENDAMENTO IBIZA" + "%0A%0A" + 
+    "⚠️Serviço: " + servico + "%0A" +
+    "⚠️Marca: " + marca + "%0A" +
+    "⚠️Modelo: " + modelo + "%0A" +
+    "⚠️Placa: " + placa + "%0A%0A" +
+    "⚠️Estado: " + estado + "%0A" +
+    "⚠️Data: " + data + "%0A" +
+    "⚠️Horário: " + horario + "%0A%0A" +
+    ""+
+    "⚠️ Gostaria de confirmar se há disponibilidade para este horário.";
 
     window.open("https://wa.me/" + numero + "?text=" + mensagem, "_blank");
 });
@@ -93,7 +122,6 @@ document.getElementById("enviar").addEventListener("click", function () {
     const nome = document.getElementById("nome").value.trim();
     const pedido = document.getElementById("pedido").value.trim();
 
-    /* BLOQUEAR CAMPOS VAZIOS */
     if (nome === "" || pedido === "") {
         alert("Preencha nome e pedido para enviar.");
         return;
@@ -110,12 +138,12 @@ document.getElementById("enviar").addEventListener("click", function () {
 });
 
 /* ===============================
-   AUTO PLAY VIDEOS AO APARECER
+   AUTO PLAY VIDEOS
 ================================= */
 
 const videos = document.querySelectorAll(".video-card");
 
-const observer = new IntersectionObserver((entries) => {
+const observerVideo = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.play();
@@ -128,10 +156,12 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 videos.forEach(video => {
-    observer.observe(video);
+    observerVideo.observe(video);
 });
 
-/* MENU HAMBURGUER */
+/* ===============================
+   MENU HAMBURGUER
+================================= */
 
 const hamburguer = document.getElementById("hamburguer");
 const menuLinks = document.getElementById("menuLinks");
@@ -145,7 +175,9 @@ fecharMenu.addEventListener("click", function () {
     menuLinks.classList.remove("ativo");
 });
 
-/* COLOQUE NO FINAL DO JS */
+/* ===============================
+   EFEITO MENU AO ROLAR
+================================= */
 
 const menu = document.querySelector(".menu");
 
@@ -158,11 +190,9 @@ window.addEventListener("scroll", function () {
 });
 
 /* ===============================
-   ANIMAÇÃO AO ROLAR A PÁGINA
-   COLOQUE NO FINAL DO JS
+   ANIMAÇÃO AO SCROLL
 ================================= */
 
-/* elementos que vão aparecer */
 const elementosAnimar = document.querySelectorAll(`
 .card-servico,
 .video-card,
@@ -177,7 +207,6 @@ iframe,
 .subtitulo
 `);
 
-/* adiciona classe inicial */
 elementosAnimar.forEach(el => {
     el.classList.add("sumir-scroll");
 });
